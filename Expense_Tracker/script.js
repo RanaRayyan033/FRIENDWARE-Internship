@@ -12,11 +12,29 @@ const expenseTableBody = document.getElementById("expenseTableBody");
 const totalAmountDisplay = document.getElementById("totalAmount");
 const filterCategory = document.getElementById("filterCategory");
 
+// Sort buttons
+const sortAscendingButton = document.getElementById("sortAscendingButton");
+const sortDescendingButton = document.getElementById("sortDescendingButton");
+
+// Store all expenses
 let expenses = [];
+
+// Load saved expenses when page opens
+loadExpensesFromStorage();
 
 addExpenseButton.addEventListener("click", addExpense);
 
 filterCategory.addEventListener("change", displayExpenses);
+
+sortAscendingButton.addEventListener(
+    "click",
+    sortExpensesAscending
+);
+
+sortDescendingButton.addEventListener(
+    "click",
+    sortExpensesDescending
+);
 
 function addExpense() {
 
@@ -54,6 +72,9 @@ function addExpense() {
     };
 
     expenses.push(expense);
+
+    // Save updated expenses
+    saveExpensesToStorage();
 
     displayExpenses();
     updateTotal();
@@ -105,6 +126,9 @@ function deleteExpense(index) {
 
     expenses.splice(index, 1);
 
+    // Save updated expenses
+    saveExpensesToStorage();
+
     displayExpenses();
     updateTotal();
 }
@@ -119,4 +143,54 @@ function updateTotal() {
 
     totalAmountDisplay.textContent =
         `PKR ${totalExpenses.toLocaleString()}`;
+}
+
+// BONUS B1
+// Save expenses in browser storage
+function saveExpensesToStorage() {
+
+    localStorage.setItem(
+        "expenses",
+        JSON.stringify(expenses)
+    );
+}
+
+// BONUS B1
+// Load expenses after page refresh
+function loadExpensesFromStorage() {
+
+    const savedExpenses =
+        localStorage.getItem("expenses");
+
+    if (savedExpenses) {
+
+        expenses = JSON.parse(savedExpenses);
+
+        displayExpenses();
+        updateTotal();
+    }
+}
+
+// BONUS B2
+// Sort from low amount to high amount
+function sortExpensesAscending() {
+
+    expenses.sort(
+        (firstExpense, secondExpense) =>
+            firstExpense.amount - secondExpense.amount
+    );
+
+    displayExpenses();
+}
+
+// BONUS B2
+// Sort from high amount to low amount
+function sortExpensesDescending() {
+
+    expenses.sort(
+        (firstExpense, secondExpense) =>
+            secondExpense.amount - firstExpense.amount
+    );
+
+    displayExpenses();
 }
