@@ -4,9 +4,10 @@
     box-sizing:border-box;
     font-family:Arial, sans-serif;
 }
+
 body{
     background:#f4f7fc;
-    padding:40px;
+     padding:40px;
 }
 
 .container{
@@ -103,4 +104,26 @@ td{
     font-weight:bold;
     color:#16a34a;
     text-align:right;
+}
+
+/* Bonus Task: Sort Controls */
+
+.sort-section{
+    margin-bottom:20px;
+    display:flex;
+    gap:10px;
+}
+
+.sort-section button{
+    padding:10px 14px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    background:#2563eb;
+    color:white;
+    font-size:14px;
+}
+
+.sort-section button:hover{
+    background:#1d4ed8;
 }
