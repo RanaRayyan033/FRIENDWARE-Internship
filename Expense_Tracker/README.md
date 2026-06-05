@@ -43,7 +43,10 @@ Expense_Tracker/
 ## Author
 Muhammad Riyan Rana- FRIENDWARE Internship Project
 
-##Bounus task:
+
+
+
+Bonus Task:
 -Filter expenses by category.
 expenses can be filtered based on thier category like food,entertainment,utilities etc 
 
