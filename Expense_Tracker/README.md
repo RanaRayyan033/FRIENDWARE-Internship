@@ -48,6 +48,8 @@ Muhammad Riyan Rana- FRIENDWARE Internship Project
 
 Bonus Task:
 -Filter expenses by category.
-expenses can be filtered based on thier category like food,entertainment,utilities etc 
+expenses can be filtered based on thier category like food,entertainment,utilities etc
+
+
 
 Let me know if you want any changes!
